@@ -1,20 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom";
+
 import './App.css';
+import Home from './pages/Home'
+import About from './pages/About'
+import Services from './pages/Services'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>
-          ATK-Peinture
-        </h1>
-        <p>
-            Welcome in the React application of ATK-Peinture
-        </p>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+            <Route path="*" element={<NotFound/>} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+            <Route path="/Services" element={<Services/>} />
+        </Routes>
+    </Router>
   );
 }
 
